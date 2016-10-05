@@ -19,19 +19,12 @@ module.exports = {
                 query: {
                     presets: ['es2015', 'react', 'stage-0']
                 }
-                // @remove-on-eject-end
             }
         ]
     },
     plugins: [
-        // Makes some environment variables available to the JS code, for example:
-        // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
-        // It is absolutely essential that NODE_ENV was set to production here.
-        // Otherwise React will be compiled in the very slow development mode.
         new webpack.DefinePlugin({'process.env': {NODE_ENV: 'producton'}}),
-        // This helps ensure the builds are consistent if source hasn't changed:
         new webpack.optimize.OccurrenceOrderPlugin(),
-        // Try to dedupe duplicated modules, if any:
         new webpack.optimize.DedupePlugin(),
         // Minify the code.
         new webpack.optimize.UglifyJsPlugin({
